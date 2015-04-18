@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'binding_of_caller'
 gem 'fog'
 gem 'devise', '~> 3.4.1'
+gem 'figaro', '~> 1.1.0'
 
 group :development, :test do
   gem 'byebug'
