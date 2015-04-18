@@ -12,6 +12,9 @@ gem 'binding_of_caller'
 gem 'fog'
 gem 'devise', '~> 3.4.1'
 gem 'figaro', '~> 1.1.0'
+gem 'omniauth', '~> 1.2.2'
+gem 'omniauth-facebook', '~> 2.0.1'
+gem 'omniauth-twitter', '~> 1.1.0'
 
 group :development, :test do
   gem 'byebug'
