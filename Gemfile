@@ -15,6 +15,7 @@ gem 'figaro', '~> 1.1.0'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-facebook', '~> 2.0.1'
 gem 'omniauth-twitter', '~> 1.1.0'
+gem 'font-awesome-rails', '~> 4.3.0.0'
 
 group :development, :test do
   gem 'byebug'

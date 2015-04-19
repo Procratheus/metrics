@@ -1,0 +1,15 @@
+<div class="border-form-div">
+  <h2>Add Email</h2>
+  <%= form_for(current_user, as: "user", url: finish_signup_path(current_user), html: {role: "form"}) do |f| %>
+    <% if @show_errors = true && current_user.errors.any? %>
+      <div>
+        <% current_user.errors.full_messages.each do |msg| %>
+          <%= msg %>
+        <% end %>
+      </div>
+    <% end %>
+      <%= f.label :email %>
+      <%= f.text_field :email, autofocus: true, value: "", placeholder: "email@me.com" %>
+      <p class="lead">Please confirm your email address to continue.</p>
+      <%= f.submit "Continue", class: "btn btn-primary" %>
+</div>
