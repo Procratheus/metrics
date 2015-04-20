@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   TEMP_EMAIL_PREFIX = "change@me" # sets the twitter users temporary e-mail
   TEMP_EMAIL_REGEX = /\Achange@me/ # evaluates the twitters users email to ensure they are not be signed-in with a temporary e-mail
 
+  has_many :identities, dependent: :destroy
+
+
   # Validations for log-in details
   validates_presence_of :name, :password, :email
   validates_format_of :email, without: TEMP_EMAIL_REGEX, on: :update
@@ -19,14 +22,14 @@ class User < ActiveRecord::Base
     user = signed_in_resource ? signed_in_resource : identity.user
     
     if user.nil?
-      email_is_verified = auth.info.email && auth.info.verified
+      email_is_verified = auth.info.email && (auth.info.verified || auth.info.verified_email)
       email = auth.info.email if email_is_verified
       user = User.where(email: email).first if email
 
       if user.nil?
         user = User.new(
           name: auth.extra.raw_info.name,
-          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.provider}",
+          email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.provider}.com",
           password: Devise.friendly_token[0,20]
         )
         user.skip_confirmation!

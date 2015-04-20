@@ -1,11 +1,11 @@
-class UserController
-  before_action :set_user, only: [:finish_signup, :update]
+class UsersController < ApplicationController
+  before_action :set_user, only: [:update, :finish_signup]
 
   def update
     respond_to do |format|
       if @user.update(update_params)
         sign_in(@user == current_user ? @user : current_user, bypass: true)
-        format.html { redirect_to @user, notice: "Your profile was successfully updated."}
+        format.html { redirect_to edit_user_registation_path, notice: "Your profile was successfully updated."}
         format.json { head :no_content}
       else
         format.html { render action: edit}
@@ -18,10 +18,9 @@ class UserController
     if request.patch? && params[:user][:email]
       if @user.update(finish_signup_params)
         sign_in(@user, bypass: true)
-        redirect_to @user, notice: "Your profile was succesfully updated."
+        redirect_to edit_user_registration_path, notice: "Your profile was succesfully updated."
       else
         @show_errors = true
-        redirect_to @user, notice: "Your profile was not succesfully updated. Please try again."
       end
     end
   end
