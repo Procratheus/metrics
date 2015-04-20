@@ -1,20 +1,16 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  
-  # include Devise::Controllers::Rememberable
 
   def self.provides_callback_for(provider)
     class_eval %Q{
       def #{provider}
         @user = User.find_for_oauth(env["omniauth.auth"], current_user)
-        # allow devise to add rememberable functionality to users signing in with omniauth i.e the user will be remain signed in between seessions and will only be destroyed when the user signs out. 
-        # remember_me(@user)
 
         if @user.persisted?
           sign_in_and_redirect @user, event: :authentication
-          set_flash_message(:notice, :success, kind: "#{provider.capitalize}") if is_navigational_format?
+          set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
         else
           session["devise.#{provider}_data"] = env["omniauth.auth"]
-          redirect_to new_user_registration_path
+          redirect_to new_user_registration_url
         end
       end
     }
@@ -31,4 +27,5 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       finish_signup_path(resource)
     end
   end
+
 end
