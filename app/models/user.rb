@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   # Validations for log-in details
   validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+  validates_presence_of :name, :email, :password
 
   def self.find_for_oauth(auth, signed_in_resource = nil)
 
