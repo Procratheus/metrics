@@ -7,7 +7,7 @@ class UsersController < ApplicationController
       flash[:info] = "You have updated your user profile succesfully"
       redirect_to edit_user_registration_path
     else
-      flash[:danger] = "Your credentials were not updated successfully. Please try again!"
+      flash[:error] = "Your credentials were not updated successfully. Please try again!"
       render @user.errors
     end
   end

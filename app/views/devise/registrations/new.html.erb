@@ -1,29 +1,22 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="container">
+  <div class="form-signin">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <h2 class="form-signin-heading">Sign up</h2>
+      <%= devise_error_messages! %>
+      <%= f.text_field :name, autofocus: true, placeholder: "Enter your name", id: "inputPassword", class: "form-control" %>
+      <br>
+      <%= f.email_field :email, placeholder: "email@me.com", id: "inputEmail", class: "form-control" %>
+      <% if @validatable %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "off", id: "inputPassword", placeholder: "Password", class: "form-control" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", id: "inputPassword", placeholder: "Password", class: "form-control"  %>
+      <%= f.button "Sign up", class: "btn btn-lg btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner'></i> Signing up......"} %>
+      <%= render "devise/shared/links" %>
+    <% end %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>

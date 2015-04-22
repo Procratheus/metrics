@@ -18,6 +18,13 @@
 @import "bootstrap";
 @import "font-awesome";
 
+// Style the main-navbar
+
+.navbar-main {
+  margin-bottom: 0px;
+}
+
+
 // Style the devise user input forms
 
 #sign-in-body {
@@ -59,6 +66,36 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+// Style the sticky footer
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+.update-button {
+  margin-top: 10px;
+}
+
 
 
 
