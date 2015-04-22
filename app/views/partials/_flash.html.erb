@@ -3,7 +3,7 @@
     <button class="close" type="button" data-dismiss="alert">&times;</button>
       <%= flash[:notice] %>
   </div>
-<% elsif [:error] %>
+<% elsif flash[:error] %>
   <div class="alert alert-danger">
     <button class="close" type="button" data-dismiss="alert">&times;</button>
       <%= flash[:error] %>  

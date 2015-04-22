@@ -11,7 +11,7 @@
       <% end %>
       <%= f.password_field :password, autocomplete: "off", id: "inputPassword", placeholder: "Password", class: "form-control" %>
       <%= f.password_field :password_confirmation, autocomplete: "off", id: "inputPassword", placeholder: "Password", class: "form-control"  %>
-      <%= f.button "Sign up", class: "btn btn-lg btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner'></i> Signing up......"} %>
+      <%= f.button "Sign up", class: "btn btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner'></i> Signing up......"} %>
       <%= render "devise/shared/links" %>
     <% end %>
   </div>

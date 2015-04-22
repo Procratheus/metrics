@@ -10,11 +10,11 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn #{ provider == :twitter ? 'btn-info' : 'btn-primary'} btn-block", data: {disable_with: "<i class='fa fa-spinner'></i>"} do %>
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn #{ provider == :twitter ? 'btn-twitter' : 'btn-facebook'} btn-social btn-block", data: {disable_with: "<i class='fa fa-spinner'></i>"} do %>
       <% if provider == :twitter %>
-        <span class="fa fa-twitter pull-left"></span>Sign in with twitter
+        <i class="fa fa-twitter"></i>Sign in with twitter
       <% else %>
-        <span class="fa fa-facebook pull-left"></span>Sign in with facebook
+        <i class="fa fa-facebook"></i>Sign in with facebook
       <% end %>
     <% end %>
   <% end -%>
