@@ -1,7 +1,11 @@
 <%= form_for @app do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-  <%= f.button "create" %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+  <%= f.button "create", class: "btn btn-primary", data: {disable_with: "<i class='fa fa-spinner'></i>Creating......"} %>
 <% end %>

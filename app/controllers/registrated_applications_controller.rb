@@ -45,7 +45,7 @@ class RegistratedApplicationsController < ApplicationController
   def destroy
     respond_to do |format|
       if @app.destroy
-        format.html {redirect_to @apps}
+        format.html {redirect_to registrated_applications_path}
         flash[:notice] = "Your app was succesfully deleted."
       else
         format.html {render action: "show"}
