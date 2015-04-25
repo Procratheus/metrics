@@ -22,7 +22,7 @@ users = User.all
 20.times do 
   app = RegistratedApplication.new(
     user: users.sample,
-    name: Faker::Name.name,
+    name: Faker::Lorem.word,
     url: Faker::Internet.url
     )
   app.save!
@@ -35,7 +35,7 @@ apps = RegistratedApplication.all
 40.times do 
   event = Event.new(
     registrated_application: apps.sample,
-    name: Faker::Name.name
+    name: Faker::Lorem.word
     )
   event.save!
 end

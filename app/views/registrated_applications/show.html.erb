@@ -10,12 +10,14 @@
           <h2><%= @app.name %></h2>
         </div>
         <div class="media-body">
-          <h4><%= link_to "#{@app.url}", @app.url %></h4>
-          <h4><%= @event.count %></h4> 
+          <h4><%= link_to "#{@app.url}", @app.url %></h4>          
+          <% @event.each do |event, instance| %>
+            <h4><%= event %></h4>
+            <h4><%= instance.count %></h4>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
