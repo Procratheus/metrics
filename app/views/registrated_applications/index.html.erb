@@ -10,7 +10,8 @@
             <h3><%= link_to "#{app.name}", registrated_application_path(app) %></h3>        
           </div>
           <div class="media-body">
-            <h4><%= link_to "Home Page", app.url %></h4>          
+            <h4><%= link_to "#{app.url}", app.url %></h4>
+            <h4><%= app.events.count %></h4>          
           </div>
         </div>
       <% end %>
