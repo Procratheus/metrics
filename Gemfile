@@ -17,6 +17,8 @@ gem 'omniauth-facebook', '~> 2.0.1'
 gem 'omniauth-twitter', '~> 1.1.0'
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'faker', '~> 1.4.3'
+gem 'chartkick', '~> 1.3.2'
+gem 'groupdate', '~> 2.4.0'
 
 group :development, :test do
   gem 'byebug'

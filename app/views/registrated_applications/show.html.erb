@@ -16,6 +16,12 @@
             <h4><%= instance %></h4>
           <% end %>
         </div>
+        <div>
+          <%= pie_chart @app.events.group(:name).count %>
+        </div>
+        <div>
+          <%= line_chart @app.events.group_by_day(:created_at).count %>
+        </div>
       </div>
     </div>
   </div>
