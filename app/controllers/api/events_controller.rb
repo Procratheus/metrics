@@ -4,12 +4,15 @@ class API::EventsController < ApplicationController
 
   def create
     @registered_application = RegistratedApplication.find_by(url: request.env["HTTP_ORIGIN"])
-    render json: "Unregistered Application", status: :unprocessable_entity unless @registered_application != nil
-    @event = @registered_application.events.build(event_params)
-    if @event.save
-      render json: @event, status: :created
+    if @registered_application == nil
+      render json: "Unregistered Application", status: :unprocessable_entity 
     else
-      render json: @event.errors, status: :unprocessable_entity
+      @event = @registered_application.events.build(event_params)
+      if @event.save
+        render json: @event, status: :created
+      else
+        render @event.errors, status: :unprocessable_entity
+      end
     end
   end
 
