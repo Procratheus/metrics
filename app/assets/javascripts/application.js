@@ -28,7 +28,7 @@ var metrics = function(name){
   else {
     _metrics_event = new ActiveXObject("Microsoft.XMLHTTP");
   }
-  _metrics_event.open("POST", "https://tranquil-ocean.herokuapp.com", true);
+  _metrics_event.open("POST", "https://tranquil-ocean.herokuapp.com/api/events", true);
   _metrics_event.setRequestHeader("Content-Type", "application/json");
   _metrics_event.onreadystatechange = function () {
     console.log(_metrics_event.responseText);
