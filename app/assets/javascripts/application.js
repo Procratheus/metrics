@@ -19,17 +19,11 @@
 
 // Javascript Snippet
 
-
-/* 
-  function metrics () {
-
-  var _metrics = {
-    name: "foobar"
-  }
+var metrics = function(name){
 
   var _metrics_event;  
-  if (window.XMLHttprequest) {
-    _metrics_event = new XMLHttprequest();
+  if (window.XMLHttpRequest){
+    _metrics_event = new XMLHttpRequest();
   }
   else {
     _metrics_event = new ActiveXObject("Microsoft.XMLHTTP");
@@ -37,11 +31,11 @@
   _metrics_event.open("POST", "http://localhost:3000/api/events", true);
   _metrics_event.setRequestHeader("Content-Type", "application/json");
   _metrics_event.onreadystatechange = function () {
-    console.log(xmlhttp.responseText);
+    console.log(_metrics_event.responseText);
   } 
-  _metrics_event.send(_metrics);
+  _metrics_event.send(JSON.stringify({name: name}));
 
-  metrics();
-} */
+  }
+
 
 
