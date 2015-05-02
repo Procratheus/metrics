@@ -35,7 +35,7 @@ var metrics = function(name){
   } 
   _metrics_event.send(JSON.stringify({name: name}));
 
-  }
+}
 
 
 

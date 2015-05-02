@@ -1,11 +1,11 @@
 <%- if controller_name != 'sessions' %>
-  <%= link_to new_session_path(resource_name),  class: "btn btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner'></i>"} do %>
+  <%= link_to new_session_path(resource_name),  class: "btn btn-primary btn-block sign-up", data: {disable_with: "<i class='fa fa-spinner'></i>"} do %>
     <span class="fa fa-envelope-o pull-left"></span>Log in with e-mail
   <% end %>
 <% end -%>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary btn-block", data: {disable_with: "<i class='fa fa-spinner'></i>"} %>
+  <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-primary btn-block sign-up", data: {disable_with: "<i class='fa fa-spinner'></i>"} %>
 <% end -%>
 
 <%- if devise_mapping.omniauthable? %>

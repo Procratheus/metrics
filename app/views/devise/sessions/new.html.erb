@@ -2,8 +2,7 @@
   <div class="form-signin">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <h2 class="form-signin-heading">Log in</h2>
-      <%= f.text_field :name, autofocus: true, placeholder: "enter your name", class: "form-control", id: "inputPassword" %>
-      <%= f.email_field :email, placeholder: "Enter your e-mail", class: "form-control", id: "inputEmail" %>  
+      <%= f.email_field :email, placeholder: "Enter your e-mail", class: "form-control", id: "inputEmail", autofocus: true %>  
       <%= f.password_field :password, autocomplete: "off", placeholder: "Email your password", class: "form-control", id: "inputPassword" %>
       <% if devise_mapping.rememberable? -%>
         <%= f.check_box :remember_me %>

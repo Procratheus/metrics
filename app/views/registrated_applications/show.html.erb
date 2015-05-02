@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= link_to "Edit", edit_registrated_application_path(@app), class: "btn btn-warning btn-sm" %>
-      <%= link_to "Delete", registrated_application_path(@app), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "Are you sure you wish to deregister this app"} %>
+      <%= link_to "Edit", edit_registrated_application_path(@app), class: "btn btn-warning btn-sm pull-right register-app" %>
+      <%= link_to "Delete", registrated_application_path(@app), class: "btn btn-danger btn-sm pull-right register-app", method: :delete, data: {confirm: "Are you sure you wish to deregister this app"} %>
     </div>
     <div class="col-md-9">
       <div class="media">
@@ -12,15 +12,17 @@
         <div class="media-body">
           <h4><%= link_to "#{@app.url}", @app.url %></h4>          
           <% @event.each do |event, instance| %>
-            <h4><%= event %></h4>
-            <h4><%= instance %></h4>
+            <h4><%= "Event name: #{event}" %></h4>
+            <h4><%= "Number of events: #{instance.count}" %></h4>
           <% end %>
         </div>
         <div>
           <%= pie_chart @app.events.group(:name).count %>
         </div>
         <div>
-          <%#= line_chart @app.events.group_by_day(:created_at).count %>
+        <% if Rails.env.production? %>
+          <%= line_chart @app.events.group_by_day(:created_at).count %>
+        <% end %>
         </div>
       </div>
     </div>
